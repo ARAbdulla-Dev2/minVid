@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minVid Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #4f46e5;
+        }
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold mb-4">minVid Player</h1>
+            <p class="text-xl opacity-90">A lightweight, customizable HTML5 video player with modern features</p>
+            <div class="mt-8">
+                <a href="#implementation" class="bg-white text-indigo-600 px-6 py-2 rounded-lg font-medium mr-4 hover:bg-gray-100 transition">Get Started</a>
+                <a href="#features" class="bg-indigo-700 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-800 transition">Features</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-indigo-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Multiple Quality Support</h3>
+                    <p class="text-gray-600">Automatically detects and switches between multiple video quality sources.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-indigo-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Playback Speed Control</h3>
+                    <p class="text-gray-600">Adjust playback speed from 0.5x to 2.0x with smooth transitions.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-indigo-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Fullscreen Support</h3>
+                    <p class="text-gray-600">Seamless fullscreen mode with responsive controls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="implementation" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Implementation</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden mb-12">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Basic Usage</h3>
+                    <p class="text-gray-600 mb-6">Add minVid to your project with this simple HTML structure:</p>
+                    
+                    <div class="code-block mb-6">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Example minVid&lt;/title&gt;    
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;video 
+        id="video"
+        class="absolute inset-0 w-full h-full object-contain"
+        preload="metadata"
+        poster="https://example.com/poster.jpg"
+        height="640"
+        width="360"
+        vid-title="Your Video Title"
+    &gt;
+        &lt;source src="hd-video.mp4" type="video/mp4" quality="HD"&gt;
+        &lt;source src="sd-video.mp4" type="video/mp4" quality="SD" default&gt;
+        Your browser does not support the video tag.
+    &lt;/video&gt;
+    
+    &lt;script src="./minVid1.0.0.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                    
+                    <h4 class="text-xl font-semibold mt-8 mb-3 text-gray-800">Attributes Explained</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><span class="font-mono bg-gray-100 px-2 py-1 rounded">vid-title</span> - Sets the title displayed on the player</li>
+                        <li><span class="font-mono bg-gray-100 px-2 py-1 rounded">quality</span> - Marks the quality of the video source (appears in quality selector)</li>
+                        <li><span class="font-mono bg-gray-100 px-2 py-1 rounded">default</span> - Sets the default quality to load initially</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Live Example</h3>
+                    <p class="text-gray-600 mb-6">Here's the actual implementation from your code:</p>
+                    
+            <video 
+                id="video"
+                class="absolute inset-0 w-full h-full object-contain"
+                preload="metadata"
+                poster="https://scontent-fra5-2.xx.fbcdn.net/v/t15.5256-10/502768210_626352807113937_7924050538613893169_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=107&ccb=1-7&_nc_sid=50ce42&_nc_ohc=0x4JlbxLUxIQ7kNvwFkVjo8&_nc_oc=Adl2jOKsfBkftEswGyP9DzApHZ98MmUCm652YQ-fnePtKenjXRJ2Ab5QseShNoWXAVs&_nc_zt=23&_nc_ht=scontent-fra5-2.xx&_nc_gid=I15I9k4hlx2BNZpe5qirUg&oh=00_AfNW-143MVewn_eFh8z7qKJnYidm7hofN41ws_1rvK2mPg&oe=686276C3"
+                height="640"
+                width="360"
+                vid-title="Raining Water Drops On Outside Window of bed room"
+                >
+                <source src="https://video-fra5-1.xx.fbcdn.net/o1/v/t2/f2/m69/AQPPqcGAIfYO-V-z4gt2eNTGYY3e1jRnIO8wVXiJkJ-ouUdypK1Zqjab61cU7br3Bpln6E8mF-LThg3T_e2Xluz9.mp4?strext=1&_nc_cat=102&_nc_sid=5e9851&_nc_ht=video-fra5-1.xx.fbcdn.net&_nc_ohc=vDZ9_-_0FmsQ7kNvwEy3OTW&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzNlLjcyMC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIiwieHB2X2Fzc2V0X2lkIjoxNDY4MjQyOTg3ODg0OTc4LCJ2aV91c2VjYXNlX2lkIjoxMDEyMiwiZHVyYXRpb25fcyI6MTMzLCJ1cmxnZW5fc291cmNlIjoid3d3In0%3D&ccb=17-1&vs=e3403e8a0ed2920f&_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HSW0tNngyR3VBWXF4NjhEQUVhRl9KT1RXVlZCYm1kakFBQUYVAALIARIAFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HSlBfOVIydkI0YUVwQUVDQUdMaEFsMnhhWlpWYnJGcUFBQUYVAgLIARIAKAAYABsCiAd1c2Vfb2lsATEScHJvZ3Jlc3NpdmVfcmVjaXBlATEVAAAm5Ibl2_7WmwUVAigDQzNlLBdAYLMzMzMzMxgZZGFzaF9oMjY0LWJhc2ljLWdlbjJfNzIwcBEAdQJllJ4BAA&_nc_zt=28&oh=00_AfNzzxMoPQD5aXBHFKiY8kUgbk0awpZ4kwWMrKZ9I6G6Lw&oe=68626A98" type="video/mp4" quality="HD">
+                                <source src="https://video-fra3-1.xx.fbcdn.net/o1/v/t2/f2/m69/AQNtsoBvCD7tKAxNWdXuueBdD9pfbSnEWFHAb81PIKaN92tM73Uc-dZhe4mgi1qFMEXJ8MwTm3fGmrSRoRiP6HUm.mp4?strext=1&_nc_cat=103&_nc_sid=8bf8fe&_nc_ht=video-fra3-1.xx.fbcdn.net&_nc_ohc=NnZRPQGlpbEQ7kNvwGq1u09&efg=eyJ2ZW5jb2RlX3RhZyI6Inhwdl9wcm9ncmVzc2l2ZS5GQUNFQk9PSy4uQzMuMzYwLnN2ZV9zZCIsInhwdl9hc3NldF9pZCI6MTQ2ODI0Mjk4Nzg4NDk3OCwidmlfdXNlY2FzZV9pZCI6MTAxMjIsImR1cmF0aW9uX3MiOjEzMywidXJsZ2VuX3NvdXJjZSI6Ind3dyJ9&ccb=17-1&_nc_zt=28&oh=00_AfOs_dNDntaqM_x8IUB7MZ-It3A_UX4GK6m6Dg_RGmsNLw&oe=68629BA7" type="video/mp4" quality="SD" default>
+                Your browser does not support the video tag.
+            </video>
+       
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold mb-4">minVid Player</h2>
+            <p class="text-gray-300 mb-6">A lightweight, customizable HTML5 video player</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-gray-300 hover:text-white transition">GitHub</a>
+                <a href="#" class="text-gray-300 hover:text-white transition">Documentation</a>
+                <a href="#" class="text-gray-300 hover:text-white transition">License</a>
+            </div>
+            <p class="text-gray-400 mt-8 text-sm">© 2023 minVid. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./minVid1.0.0.js"></script>
+</body>
+</html>
